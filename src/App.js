@@ -4,7 +4,7 @@ import './style.css';
 import Search from './components/Search/index.js';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-selectResults
+selectCount
 } from './resultsSlice.js';
 
 
@@ -20,27 +20,10 @@ function Presets() {
     </div>
   )
 }
-function Results() {
-  let results = useSelector(selectResults);
 
-  let resultItems = results.value ? results.value.map((item) =>
-  <li>{item}</li>) : null;
-
-  return (<div>Results:
-
-{/* <ul>{resultItems}</ul> */}
-{results.value? results.value.forEach((item)=><p>{item}</p>): <p>No results yet...</p>}
-
-  </div>)
-}
 
 function App() {
-  let results = useSelector(selectResults);
-  let [myResults, setMyResults] = useState( {} );
-
-  useEffect(() => {
-
-  },[myResults]);
+  let count = useSelector(selectCount);
 
   return (
     <div className="App">
@@ -49,8 +32,8 @@ function App() {
       </header>
       <Search></Search>
     <Presets />
-    {/* <Results /> */}
-    {results.value? results.value.forEach((item)=><p>{item}</p>): <p>No results yet...</p>}
+
+    {count}
     </div>
   );
 }

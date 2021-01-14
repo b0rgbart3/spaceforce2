@@ -2,16 +2,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  receivedResults,
-  selectResults,
-  resultsAsync,
+  selectCount,
+  increment,
 } from '../../resultsSlice.js';
 
 function Search(props) {
     var textInput = useRef();
-    let results = useSelector(selectResults);
+    // let results = useSelector(selectResults);
     const dispatch = useDispatch();
-    let [localResults, setLocalResults] = useState();
+
     const [query, setQuery] = useState('');
     let [resultsList, setResultsList] = useState([]);
 
@@ -24,11 +23,14 @@ function Search(props) {
         fetch(query)
         .then(response => response.json())
         .then(data => {
-           dispatch(receivedResults(data.collection.items));
-            setLocalResults(data.collection.items);
-            console.log(data.collection.items);
-        
-            setResultsList(data.collection.items);
+            if (data && data.collection && data.collection.items) {
+              //dispatch(receivedResults(data.collection.items));
+              dispatch(increment());
+              setResultsList(data.collection.items);
+            } else {
+                dispatch(increment());
+                setResultsList([]);
+            }
         
     });
 
@@ -39,11 +41,11 @@ function Search(props) {
             <p>Search for images from the Nasa Public Image Bank:</p>
             <input type='text' ref={textInput}></input>
             <button onClick={initiateQuery}>SEARCH</button>
-            <br></br>
-            {resultsList.map((item, index)=>(
+            {/* <br></br>
+            {resultsList ? resultsList.map((item, index)=>(
                 <p k={index}>{item.data[0].description}.....</p>
-            ))}
-      
+            )) : <p>No results yet</p>}
+       */}
             </div>
         );
     
