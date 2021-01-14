@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import logo from './assets/logo1.jpg';
 import './style.css';
-import Search from './components/Search/index.js';
+import Search from './components/Search';
+import Results from './components/Results';
 import { useSelector, useDispatch } from 'react-redux';
 import {
 selectResult
@@ -51,14 +52,7 @@ function App() {
     <Presets />
 
     <h2>Current Query: {query}</h2>
-    {result.map((item, index)=>(
-      <p key={index}>{item.data[0].description}
-      { item.links && item.links[0] ? (
-      <img src={ item.links[0].href }></img>): <p></p>}
-
-      </p>
-     
-    ))}
+    <Results></Results>
     </div>
   );
 }
