@@ -15,7 +15,7 @@ import {
 
 
 function Presets() {
-  let presets = ["Apollo 11", "mars", "Space Shuttle"];
+  let presets = ["Apollo 11", "mars", "Space Shuttle", "Hubble", "Moon"];
   const dispatch = useDispatch();
 
   function setPreset(preset) {
@@ -52,7 +52,12 @@ function App() {
 
     <h2>Current Query: {query}</h2>
     {result.map((item, index)=>(
-      <p key={index}>{item.data[0].description}</p>
+      <p key={index}>{item.data[0].description}
+      { item.links && item.links[0] ? (
+      <img src={ item.links[0].href }></img>): <p></p>}
+
+      </p>
+     
     ))}
     </div>
   );
