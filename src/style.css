@@ -1,0 +1,47 @@
+
+
+html {
+    margin:0;
+    padding:0;
+    background-image:url(assets/starfield.jpg);
+  }
+  
+  body {
+      background-color:rgb(10, 17, 56,0);
+      color:rgb(187, 203, 210);
+      margin:0;
+      padding:0;
+      max-width:1000px;
+      margin:auto;
+  }
+
+  .App-header
+  {
+    border:4px solid blue;
+    box-shadow:0 0 20px blue;
+    padding:10px;
+    border-radius:14px;
+    margin-top:20px;
+    background-color:rgb(17, 36, 59);
+  }
+
+  .App-logo {
+      width:100%;
+  }
+  
+  
+  /*  ClearFix  */
+  /*  The ClearFix by Tony Aslett and Nicholas Gallagher */
+  .group:before,
+  .group:after {
+  content: "";
+  display: table; }
+  
+  .group:after {
+  clear: both; }
+  
+  .group {
+  zoom: 1;
+  /* IE6&7 */ }
+  
+  
