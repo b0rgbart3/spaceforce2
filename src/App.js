@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import logo from './assets/logo1.jpg';
 import './style.css';
 import Search from './components/Search/index.js';
-import { Counter } from './features/counter/Counter';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+selectResults
+} from './resultsSlice.js';
+
 
 function Presets() {
   return (
@@ -17,10 +21,27 @@ function Presets() {
   )
 }
 function Results() {
-  return (<div>Results:</div>)
+  let results = useSelector(selectResults);
+
+  let resultItems = results.value ? results.value.map((item) =>
+  <li>{item}</li>) : null;
+
+  return (<div>Results:
+
+{/* <ul>{resultItems}</ul> */}
+{results.value? results.value.forEach((item)=><p>{item}</p>): <p>No results yet...</p>}
+
+  </div>)
 }
 
 function App() {
+  let results = useSelector(selectResults);
+  let [myResults, setMyResults] = useState( {} );
+
+  useEffect(() => {
+
+  },[myResults]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -28,8 +49,8 @@ function App() {
       </header>
       <Search></Search>
     <Presets />
-    <Results />
-    <Counter />
+    {/* <Results /> */}
+    {results.value? results.value.forEach((item)=><p>{item}</p>): <p>No results yet...</p>}
     </div>
   );
 }
