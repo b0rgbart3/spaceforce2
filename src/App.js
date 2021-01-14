@@ -4,7 +4,7 @@ import './style.css';
 import Search from './components/Search/index.js';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-selectCount
+selectResult
 } from './resultsSlice.js';
 
 
@@ -23,7 +23,7 @@ function Presets() {
 
 
 function App() {
-  let count = useSelector(selectCount);
+  let result = useSelector(selectResult);
 
   return (
     <div className="App">
@@ -33,7 +33,9 @@ function App() {
       <Search></Search>
     <Presets />
 
-    {count}
+    {result.map((item)=>(
+      <p>{item.data[0].description}</p>
+    ))}
     </div>
   );
 }

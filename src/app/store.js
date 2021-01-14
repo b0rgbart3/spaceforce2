@@ -3,6 +3,6 @@ import resultsReducer from '../resultsSlice';
 
 export default configureStore({
   reducer: {
-    counter: resultsReducer,
+    results: resultsReducer,
   },
 });

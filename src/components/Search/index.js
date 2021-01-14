@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectCount,
-  increment,
+  selectResult,
+  newResults,
 } from '../../resultsSlice.js';
 
 function Search(props) {
@@ -25,10 +25,11 @@ function Search(props) {
         .then(data => {
             if (data && data.collection && data.collection.items) {
               //dispatch(receivedResults(data.collection.items));
-              dispatch(increment());
+              dispatch(newResults(data.collection.items));
               setResultsList(data.collection.items);
+              console.log(data.collection.items);
             } else {
-                dispatch(increment());
+                dispatch(newResults([]));
                 setResultsList([]);
             }
         
