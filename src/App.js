@@ -2,6 +2,7 @@ import React from "react";
 import logo from './assets/logo1.jpg';
 import './style.css';
 import Search from './components/Search/index.js';
+import { Counter } from './features/counter/Counter';
 
 function Presets() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Search></Search>
     <Presets />
     <Results />
+    <Counter />
     </div>
   );
 }
