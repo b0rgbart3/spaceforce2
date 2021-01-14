@@ -5,6 +5,10 @@ import {
   selectResult,
   newResults,
 } from '../../resultsSlice.js';
+import {
+    selectQuery,
+    newQuery
+  } from '../../querySlice.js';
 
 function Search(props) {
     var textInput = useRef();
@@ -19,6 +23,7 @@ function Search(props) {
         let query = "https://images-api.nasa.gov/search?q="+term;
         
         setQuery(query);
+        dispatch(newQuery(term));
 
         fetch(query)
         .then(response => response.json())

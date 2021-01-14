@@ -6,7 +6,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
 selectResult
 } from './resultsSlice.js';
-
+import {
+  selectQuery,
+  newQuery
+  } from './querySlice.js';
+  
+  
 
 function Presets() {
   return (
@@ -24,6 +29,7 @@ function Presets() {
 
 function App() {
   let result = useSelector(selectResult);
+  let query = useSelector(selectQuery);
 
   return (
     <div className="App">
@@ -33,6 +39,7 @@ function App() {
       <Search></Search>
     <Presets />
 
+    <h2>Current Query: {query}</h2>
     {result.map((item)=>(
       <p>{item.data[0].description}</p>
     ))}

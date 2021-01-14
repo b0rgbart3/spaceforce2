@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const resultsSlice = createSlice({
-  name: 'results',
+export const querySlice = createSlice({
+  name: 'query',
   initialState: {
     value: [],
   },
   reducers: {
 
-    newResults: (state, action) => {
+    newQuery: (state, action) => {
       state.value = action.payload
     }
     
   },
 });
 
-export const { newResults } = resultsSlice.actions;
+export const { newQuery } = querySlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -38,7 +38,7 @@ export const { newResults } = resultsSlice.actions;
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 //export const selectCount = state => state.counter.value;
-export const selectResult = state => state.results.value;
+export const selectQuery = state => state.query.value;
 
 //export default counterSlice.reducer;
-export default resultsSlice.reducer;
+export default querySlice.reducer;
