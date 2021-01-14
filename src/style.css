@@ -13,6 +13,7 @@ html {
       padding:0;
       max-width:1000px;
       margin:auto;
+    
   }
 
   .App-header
@@ -29,6 +30,30 @@ html {
       width:100%;
   }
   
+  .presetList {
+    text-align: center;
+    width:100%;
+    background-color:rgb(35, 41, 65);
+    box-sizing: border-box;
+  }
+  .presetLink {
+    display:inline-block;
+    border:1px solid blue;
+    color:white;
+    padding:8px;
+    background-color:rgb(9, 9, 172);
+    user-select: none;
+    cursor: pointer;
+    margin-top:4px;
+    margin-bottom:4px;
+    border-radius:8px;
+    margin-left:4px;
+    margin-right:4px;
+    box-sizing:border-box;
+  }
+  .presetLink:hover {
+    background-color:blue;
+  }
   
   /*  ClearFix  */
   /*  The ClearFix by Tony Aslett and Nicholas Gallagher */
