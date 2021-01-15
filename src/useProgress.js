@@ -1,5 +1,11 @@
 import {useState, useEffect} from "react";
 
+/*
+This Custom Hook was presented by Ryan Florence at
+The React Conf 2018.
+I am using it verbatum.
+*/
+
 let useProgress = (animate, time) => {
     let [progress, setProgress] = useState(0);
 
