@@ -15,8 +15,8 @@ html {
       width:90%;
       margin:auto;
       background-color:rgb(17,36,59);
-      border:4px solid blue;
-      box-shadow:0 0 30px blue;
+      border:2px solid rgb(0, 0, 177);
+      box-shadow:0 0 20px blue;
       border-radius:14px;
       margin-top:40px;
       margin-bottom:100px;
@@ -35,8 +35,8 @@ html {
   .App-logo {
       width:100%;
       margin:auto;
-      max-width:1000px;
-      margin-bottom:-24px;
+      max-width:840px;
+      margin-bottom:-14px;
   }
   
   .presetList {
@@ -82,17 +82,23 @@ html {
   }
   .description {
     position: absolute;
-    top:40px;
-    right:40px;
-    background-color:black;
-    color:white;
-    width:30%;
-    padding:20px;
-    border-radius:18px;
-    box-sizing:border-box;
-    border:2px solid #aaaaaa;
-    box-shadow:0 0 20px blue;
+    top:-14px;
+    right:-14px;
 
+    color:rgb(214, 228, 228);
+    width:30%;
+    padding:43px;
+    border-radius:14px;
+    box-sizing:border-box;
+    background-color:rgba(17,36,59,1);
+      border:1px solid rgb(0, 0, 177);
+      box-shadow:0 0 4px blue;
+      line-height: 1.7em;
+    padding-top:0;
+  }
+  .slideTitle {
+    font-weight:bold;
+    font-size:1.3em;
   }
 
   .icon {

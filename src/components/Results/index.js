@@ -27,7 +27,7 @@ function Results() {
     let descriptionString = "";
     
     if (result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0]) {
-        let maxLength = 400;
+        let maxLength = 300;
         let descLength = maxLength;
         if (result[slideNumber].data[0].description.length < maxLength) {
             descLength = result[slideNumber].data[0].description.length;
@@ -74,16 +74,23 @@ function Results() {
     }
         return(<div className="result">
         {/* { result[slideNumber] ? "<p></p>" : "" } */}
+
          {
              result[slideNumber] && result[slideNumber].links && result[slideNumber].links[0] ?
              <div className="nasaImage"><img src={result[slideNumber].links[0].href}></img></div>  :
              <p></p>
          }
+         <div className="description">
          {
              result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0] ?
-             <div className="description">{descriptionString}</div> :
+             <p className='slideTitle'>{result[slideNumber].data[0].title}<br/></p>  :
              <p></p>
          }
+         {
+             result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0] ?
+             <p>{descriptionString}</p>: <p></p>
+         }
+         </div> 
          <div className="slideNavigation flex-container center">
             <div className='navWrapper flex-container center'>
                 <div onClick={prev} >
