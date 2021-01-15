@@ -94,6 +94,41 @@ html {
     box-shadow:0 0 20px blue;
 
   }
+
+  .icon {
+    width:80px;
+    box-sizing:border-box;
+    border:1px solid white;
+    justify-content: center;
+  }
+  .playIcon {
+    width:80px;
+  }
+
+  .slideNavigation {
+    text-align:center;
+    width:100%;
+    background-color:purple;
+   
+  }
+  .navWrapper {
+    background-color:red;
+    border:4px solid green;
+    margin:auto;
+    width:300px;
+    display:flex;
+  }
+
+  .flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+  }
+  .center { 
+    justify-content: center; 
+  }  
+  
   /*  ClearFix  */
   /*  The ClearFix by Tony Aslett and Nicholas Gallagher */
   .group:before,
