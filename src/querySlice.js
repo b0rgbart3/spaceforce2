@@ -8,7 +8,8 @@ export const querySlice = createSlice({
   reducers: {
 
     newQuery: (state, action) => {
-      state.value = action.payload
+      state.value = action.payload;
+      console.log("new query: ", state.value);
     }
     
   },

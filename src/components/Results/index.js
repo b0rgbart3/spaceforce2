@@ -18,11 +18,11 @@ import {
 
 function Results() {
     let result = useSelector(selectResult);
-    const SLIDE_DURATION = 3000;
+    const SLIDE_DURATION = 5000;
     const [slideNumber, setSlideNumber] = useState(0);
     const [playing, setPlaying] = useState(true);
     const slideCount = result.length;
-   // console.log(slideCount);
+    console.log("slideCount: ", slideCount);
 
     let descriptionString = "";
     
@@ -73,7 +73,7 @@ function Results() {
         setPlaying( !playing );
     }
         return(<div className="result">
-
+        {/* { result[slideNumber] ? "<p></p>" : "" } */}
          {
              result[slideNumber] && result[slideNumber].links && result[slideNumber].links[0] ?
              <div className="nasaImage"><img src={result[slideNumber].links[0].href}></img></div>  :

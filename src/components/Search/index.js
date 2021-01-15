@@ -66,7 +66,7 @@ function Search(props) {
 
         return (
             <div>
-            <p>Search for images from the Nasa Public Image Bank:</p>
+            <p>Explore Nasa's Public Image Bank:</p>
             <input type='text' ref={textInput}></input>
             
             <button onClick={initiateQuery}>SEARCH</button>
