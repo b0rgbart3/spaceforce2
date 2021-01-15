@@ -38,7 +38,7 @@ function Search(props) {
         .then(response => response.json())
         .then(data => {
             if (data && data.collection && data.collection.items) {
-              //dispatch(receivedResults(data.collection.items));
+      
               dispatch(newResults(data.collection.items));
               setResultsList(data.collection.items);
               console.log(data.collection.items);

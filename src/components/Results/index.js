@@ -19,6 +19,18 @@ function Results() {
     let result = useSelector(selectResult);
     const [slideNumber, setSlideNumber] = useState(0);
 
+    let descriptionString = "";
+    
+    if (result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0]) {
+        let maxLength = 400;
+        let descLength = maxLength;
+        if (result[slideNumber].data[0].description.length < maxLength) {
+            descLength = result[slideNumber].data[0].description.length;
+        }
+        descriptionString = result[slideNumber].data[0].description.slice(0, descLength);
+
+    }
+
     function next(e) {
         setSlideNumber( (slideNumber + 1) % result.length );
     }
@@ -34,7 +46,7 @@ function Results() {
          }
          {
              result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0] ?
-             <div className="description">{result[slideNumber].data[0].description}</div> :
+             <div className="description">{descriptionString}</div> :
              <p></p>
          }
          <div className="slideNavigation flex-container center">
