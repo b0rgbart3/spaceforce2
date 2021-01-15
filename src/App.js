@@ -11,8 +11,7 @@ import {
   selectQuery,
   newQuery
   } from './querySlice.js';
-  import Dropdown from 'react-dropdown';
-  import 'react-dropdown/style.css';
+
   
 
  const presets = ["Apollo 11", "mars", "Space Shuttle", "Hubble", "Moon", "weightless", "gravity","zero gravity", "g-force", "lunar landing","Dark Side", "Black Holes", "pleiades", "pleiades star cluster", "Galaxy", "galaxies", "solar system", "star death","Milky Way", "Orion", "Lockheed Martin", "Jet propulsion", "Saturn", "Pluto","Venus", "Jupiter", "Jupiter's Moons", "LEWIS RESEARCH CENTER", "Space Station", "Earth", "Prometheus", "Pandora", "Cassini spacecraft", "Voyager", "Carl Sagan", "Chandra X-ray Observatory", "supernova", "Galaxy Evolution Explorer", "Spitzer Space Telescope", "radio emissions", "x-rays", "dark matter", "space walk", "Endeavour", "Bill Nye", "Neil deGrasse Tyson", "Cosmos", "Cape Canaveral", "Launch Pad", "Kennedy Space Center"];
