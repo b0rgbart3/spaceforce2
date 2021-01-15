@@ -36,12 +36,16 @@ html {
       width:100%;
       margin:auto;
       max-width:840px;
-      margin-bottom:-14px;
+      margin-bottom:-24px;
   }
   
+  .searchInput {
+    margin-top:20px;
+    margin-right:10px;
+  }
   .presetList {
     text-align: center;
-    width:100%;
+    width:200px;
     background-color:rgb(35, 41, 65);
     box-sizing: border-box;
   }
@@ -68,6 +72,7 @@ html {
     width:100%;
     box-sizing: border-box;
     position: relative;
+    padding-top:40px;
   }
   .nasaImage {
     width:100%;
@@ -155,7 +160,43 @@ html {
     height:20px;
   }
 
+.instructions {
+  text-align: center;
+  padding-bottom:20px;
+  margin-bottom:20px;
+}
+.presetSelect {
+  margin-top:20px;
+  font-size:1.05em;
+  padding:7px;
+  padding-top:12px;
+  outline:none;
+  border:none;
+  border-radius:8px;
+  background-color:rgb(36, 73, 118);
+  color:white;
+  width:200px;
+}
 
+.presetSelect option {
+  background-color:rgb(36, 73, 118);;
+}
+label {
+  font-weight: bold;
+  font-size:1.1em;
+}
+
+.searchTitle {
+  background-color:rgba(17,36,59,1);
+  border:2px solid blue;
+  border-radius:8px;
+  float:left;
+  padding:18px;
+  z-index: 200;
+  position: absolute;
+  top:-15px;
+  left:-15px;
+}
   /*  ClearFix  */
   /*  The ClearFix by Tony Aslett and Nicholas Gallagher */
   .group:before,

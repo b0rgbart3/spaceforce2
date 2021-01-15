@@ -55,6 +55,7 @@ function Search(props) {
         if (!term || term.length < 3) {
            term = "";
         }
+        if (term == "Topics") { term = "";}
         //setQuery(endpoint);
         dispatch(newQuery(term));
         grabData(term);
@@ -66,8 +67,8 @@ function Search(props) {
 
         return (
             <div>
-            <p>Explore Nasa's Public Image Bank:</p>
-            <input type='text' ref={textInput}></input>
+            <p>Exploring Nasa's Public Image Bank:</p>
+            <input type='text' ref={textInput} className='searchInput'></input>
             
             <button onClick={initiateQuery}>SEARCH</button>
             {/* <br></br>

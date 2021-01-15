@@ -20,7 +20,9 @@ import {
 
 function Results() {
     let result = useSelector(selectResult);
+    let query = useSelector(selectQuery);
     const SLIDE_DURATION = 7000;
+    const MAX_DESCRIPTION_LENGTH = 200;
     const [slideNumber, setSlideNumber] = useState(0);
     const [playing, setPlaying] = useState(true);
     const slideCount = result.length;
@@ -29,7 +31,7 @@ function Results() {
     let descriptionString = "";
     
     if (result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0]) {
-        let maxLength = 300;
+        let maxLength = MAX_DESCRIPTION_LENGTH;
         let descLength = maxLength;
         if (result[slideNumber].data[0].description.length < maxLength) {
             descLength = result[slideNumber].data[0].description.length;
@@ -93,6 +95,7 @@ function Results() {
              <div className="nasaImage"><img src={result[slideNumber].links[0].href}></img></div>  :
              <p></p>
          }
+         {query && query != "" ? <div className="searchTitle">Search for: {query}</div> : <p></p>}
          <div className="description">
          {
              result[slideNumber] && result[slideNumber].data && result[slideNumber].data[0] ?
@@ -125,14 +128,6 @@ function Results() {
             animate={playing}
         />
     
-            {/* {result.map((item, index)=>(
-                <p key={index}>{item.data[0].description}
-                { item.links && item.links[0] ? (
-                <img src={ item.links[0].href }></img>): <p></p>}
-        
-                </p>
-            
-            ))} */}
             </div>
         )
  }
