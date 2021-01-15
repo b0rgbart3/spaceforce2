@@ -1,7 +1,8 @@
 # SpaceForce2
-Search the Nasa public image bank for cool images.
+Learn about science in a fun and interactive way by searching the Nasa public image bank for cool images.
+Originally written with JQuery and vanilla Javascript, I refactored it with React and Redux to make for a more modern UI/UX.
 
-![screenshot](screenshot.jpg)
+![screenshot](screengrab.jpg)
 # Table of contents
 1. [Usage](#Usage)
 2. [Live Demo](#Live_Demo)
@@ -18,19 +19,23 @@ npm start
 ```
 <a name="Live_Demo"></a>
 ## Live Demo
-https://livedemo.html
+https://enigmatic-anchorage-91060.herokuapp.com/
 <a name='License'></a>
 ## License
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 <a name="Features"></a>
 ## Features
-1. NASA Image API
-2.  React
-3.  Redux
+1. Cool images from Nasa
+2. Interactive Carousel / slide show
+3. Preset search topics
+4. Ability to search by any term
 <a name="Technology"></a>
 ## Technology
 1. React
-2.  Redux
+2. Redux
+3. Nasa Image API
+4. React Hooks / Custom Hooks
+
 <a name="Credits"></a>
 ## Credits
 Bart Dority
@@ -46,5 +51,5 @@ Email: borgBart3@gmail.com
 <a name="User_Story"></a>
 ## User Story
 ```sh
-As a citizen, I want to search the Nasa image bank for cool images.
+As a student, I want to search the Nasa image bank for cool images, and learn about science topics.
 ```
