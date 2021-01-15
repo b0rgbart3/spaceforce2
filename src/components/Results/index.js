@@ -5,6 +5,8 @@ import playIcon from "../../assets/play_circle_outline-24px.svg";
 import pauseIcon from "../../assets/pause.svg";
 import prevIcon from "../../assets/skip_previous-24px.svg";
 import nextIcon from "../../assets/skip_next-24px.svg";
+import useProgress from "../../useProgress";
+
 import {
   selectResult,
   newResults,
@@ -18,7 +20,7 @@ import {
 
 function Results() {
     let result = useSelector(selectResult);
-    const SLIDE_DURATION = 5000;
+    const SLIDE_DURATION = 7000;
     const [slideNumber, setSlideNumber] = useState(0);
     const [playing, setPlaying] = useState(true);
     const slideCount = result.length;
@@ -72,6 +74,17 @@ function Results() {
         console.log('toggle playing: ', playing);
         setPlaying( !playing );
     }
+
+    function ProgressBar( {animate, time}) {
+        let progress = useProgress(animate, time);
+        return (
+            <div className="progressBarContainer">
+            <div className="progressBar" 
+              style={{width: `${progress * 100}%`}} />
+        </div>
+        
+        )
+    }
         return(<div className="result">
         {/* { result[slideNumber] ? "<p></p>" : "" } */}
 
@@ -105,7 +118,12 @@ function Results() {
                 </div>
             </div>
          </div>
-         
+        
+        <ProgressBar
+            key={slideNumber + playing}
+            time={SLIDE_DURATION}
+            animate={playing}
+        />
     
             {/* {result.map((item, index)=>(
                 <p key={index}>{item.data[0].description}
