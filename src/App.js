@@ -16,7 +16,7 @@ import {
 
 
 function Presets() {
-  let presets = ["Apollo 11", "mars", "Space Shuttle", "Hubble", "Moon", "weightless", "gravity","zero gravity", "g-force", "lunar landing","Dark Side", "Black Holes", "pleiades", "pleiades star cluster", "Galaxy", "galaxies", "solar system", "star death","Milky Way", "Orion", "Lockheed Martin", "Jet propulsion", "Saturn", "Pluto","Venus", "Jupiter", "Jupiter's Moons", "LEWIS RESEARCH CENTER", "Space Station", "Earth", "Prometheus", "Pandora", "Cassini spacecraft", "Voyager", "Carl Sagan", "Chandra X-ray Observatory", "supernova", "Galaxy Evolution Explorer", "Spitzer Space Telescope", "radio emissions", "x-rays", "dark matter", "space walk", "Endeavour", "Bill Nye", "Neil deGrasse Tyson", "Cosmos", "Cape Canaveral", "Launch Pad", "Kennedy Space Center"];
+  let presets = ["Apollo 11", "mars", "Space Shuttle", "Hubble", "Moon", "weightless", "gravity","zero gravity", "g-force", "lunar landing","Dark Side", "Black Holes", "pleiades", "pleiades star cluster", "Galaxy", "galaxies", "solar system", "star death","Milky Way", "Orion", "Lockheed Martin", "Jet propulsion", "Saturn", "Pluto","Venus", "Jupiter", "Jupiter's Moons", "LEWIS RESEARCH CENTER", "Space Station", "Earth", "Prometheus", "Pandora", "Cassini spacecraft", "Voyager", "Carl Sagan", "Chandra X-ray Observatory", "supernova", "Galaxy Evolution Explorer", "Spitzer Space Telescope", "radio emissions", "x-rays", "dark matter", "space walk", "Endeavour", "Bill Nye", "Neil deGrasse Tyson", "Cosmos", "Cape Canaveral", "Launch Pad", "Kennedy Space Center", "19 Tauri"];
   const dispatch = useDispatch();
 
   function setPreset(preset) {
@@ -29,6 +29,7 @@ function Presets() {
   return (
     <div>
       <h1>Presets</h1>
+      
       <ul className='presetList'>
         {presets.map((preset, index) => (
           <li key={index} onClick={()=>setPreset(preset)} className="presetLink">{preset}</li>
@@ -47,8 +48,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Search></Search>
       </header>
-      <Search></Search>
+
     <Presets />
 
     <h2>Current Query: {query}</h2>
