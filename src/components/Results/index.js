@@ -22,6 +22,7 @@ function Results() {
     const [slideNumber, setSlideNumber] = useState(0);
     const [playing, setPlaying] = useState(true);
     const slideCount = result.length;
+   // console.log(slideCount);
 
     let descriptionString = "";
     
@@ -35,16 +36,28 @@ function Results() {
 
     }
 
+    // This useEffect is the code block that animates the slides.
+    // Note:  The return includes a clearTimeout because if the
+    // slideNumber changes or the playing state changes, we want
+    // to stop the timer and clear it out.
+
     useEffect(
         () => {
         if (playing) {
+           // console.log(slideCount);
           let slideTimer = setTimeout(() => {
+            console.log(slideCount);
+              // Computer science trick from Ryan Florence
+              // that automatically starts over at zero if
+              // we get to the end of our list (using math 
+              // instead of a condition.... yay!)
             setSlideNumber( (slideNumber + 1) % slideCount);
+            
         }, SLIDE_DURATION );
         return () => clearTimeout(slideTimer);
       }
       
-    }, [slideNumber, playing]);
+    }, [slideNumber, playing, slideCount]);
 
 
     function next(e) {
