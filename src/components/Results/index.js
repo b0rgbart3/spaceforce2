@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import playIcon from "../../assets/play_circle_outline-24px.svg";
+import pauseIcon from "../../assets/pause.svg";
 import prevIcon from "../../assets/skip_previous-24px.svg";
 import nextIcon from "../../assets/skip_next-24px.svg";
 import {
@@ -17,7 +18,10 @@ import {
 
 function Results() {
     let result = useSelector(selectResult);
+    const SLIDE_DURATION = 3000;
     const [slideNumber, setSlideNumber] = useState(0);
+    const [playing, setPlaying] = useState(true);
+    const slideCount = result.length;
 
     let descriptionString = "";
     
@@ -31,11 +35,29 @@ function Results() {
 
     }
 
+    useEffect(
+        () => {
+        if (playing) {
+          let slideTimer = setTimeout(() => {
+            setSlideNumber( (slideNumber + 1) % slideCount);
+        }, SLIDE_DURATION );
+        return () => clearTimeout(slideTimer);
+      }
+      
+    }, [slideNumber, playing]);
+
+
     function next(e) {
         setSlideNumber( (slideNumber + 1) % result.length );
+        setPlaying(false);
     }
     function prev(e) {
         setSlideNumber( (slideNumber -1  + result.length) % result.length );
+        setPlaying(false);
+    }
+    function play(e) {
+        console.log('toggle playing: ', playing);
+        setPlaying( !playing );
     }
         return(<div className="result">
 
@@ -54,8 +76,9 @@ function Results() {
                 <div onClick={prev} >
                 <img src={prevIcon} className="icon"></img>
                 </div>
-                <div className="playButton">
-                    <img src={playIcon} className="icon"></img>
+                <div className="playButton" onClick={play}>
+                    <img src={playing ? pauseIcon : playIcon} className="icon playIcon">
+                    </img>
                 </div>
                 <div onClick={next} >
                 <img src={nextIcon} className="icon"></img>
